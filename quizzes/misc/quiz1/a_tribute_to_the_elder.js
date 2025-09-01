@@ -1,40 +1,43 @@
 const quizData = [
             {
-                question: "What is the capital of France?",
-                options: ["Berlin", "Madrid", "Paris", "Lisbon"],
-                answer: "Paris"
+                question: "which one",
+                options: ["1 and 2","3 and 4"],
+                weights: [
+                            {a_tribute_to_the_elder1: +1, a_tribute_to_the_elder2:+1}
+                            {a_tribute_to_the_elder3: +1, a_tribute_to_the_elder4:+1}
+                        ]
             },
             {
-                question: "Which language is used for web development?",
-                options: ["Python", "HTML", "Java", "C++"],
-                answer: "HTML"
+                question: "which one",
+                options: ["3 and 2","1 and 4"],
+                weights: [
+                            {a_tribute_to_the_elder3: +1, a_tribute_to_the_elder2:+1}
+                            {a_tribute_to_the_elder1: +1, a_tribute_to_the_elder4:+1}
+                        ]
             },
-            {
-                question: "Who wrote 'Hamlet'?",
-                options: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"],
-                answer: "William Shakespeare"
-            },
-            {
-                question: "What is the largest planet in our solar system?",
-                options: ["Earth", "Mars", "Jupiter", "Saturn"],
-                answer: "Jupiter"
-            },
-            {
-                question: "Which country is known as the Land of the Rising Sun?",
-                options: ["China", "Japan", "South Korea", "India"],
-                answer: "Japan"
+        ]
+            if (a_tribute_to_the_elder1 >= a_tribute_to_the_elder2 && a_tribute_to_the_elder1 >= a_tribute_to_the_elder3 && a_tribute_to_the_elder1 >= a_tribute_to_the_elder4) {
+                        console.log ("a_tribute_to_the_elder1")
+            } else if (a_tribute_to_the_elder2 >= a_tribute_to_the_elder1 && a_tribute_to_the_elder2 >= a_tribute_to_the_elder3 && a_tribute_to_the_elder2 >= a_tribute_to_the_elder4) {
+                        console.log ("a_tribute_to_the_elder2")
+            } else if (a_tribute_to_the_elder3 >= a_tribute_to_the_elder2 && a_tribute_to_the_elder3 >= a_tribute_to_the_elder1 && a_tribute_to_the_elder3 >= a_tribute_to_the_elder4) {
+                        console.log ("a_tribute_to_the_elder3")
+            } else if (a_tribute_to_the_elder4 >= a_tribute_to_the_elder2 && a_tribute_to_the_elder4 >= a_tribute_to_the_elder3 && a_tribute_to_the_elder4 >= a_tribute_to_the_elder1) {
+                        console.log ("a_tribute_to_the_elder4")
+            } else {
+                        console.log ("a_tribute_to_the_elder3")
             }
-        ];
 
-        let currentQuestion = 0;
-        let score = 0;
-        let timeLeft = 30;
-        let timerInterval;
-        const timerEl = document.getElementById('time');
+        //Variables for scores 
+        let currentQuestionIndex = 0;
+        let a_tribute_to_the_elder1 = 0;
+        let a_tribute_to_the_elder2 = 0;
+        let a_tribute_to_the_elder3 = 0; 
+        let a_tribute_to_the_elder4 = 0; 
+
         const questionEl = document.querySelector('.question');
         const optionsEl = document.querySelector('.options');
         const resultEl = document.querySelector('.result');
-        const scoreEl = document.getElementById('score');
         const restartBtn = document.querySelector('.restart-btn');
 
         // Function to load the question
@@ -43,10 +46,7 @@ const quizData = [
                 endQuiz();
                 return;
             }
-            clearInterval(timerInterval);
-            timeLeft = 30;
-            timerEl.textContent = timeLeft;
-            startTimer();
+                    
             const currentQuiz = quizData[currentQuestion];
             questionEl.textContent = currentQuiz.question;
             optionsEl.innerHTML = ''; // Clear previous options
@@ -68,17 +68,6 @@ const quizData = [
             loadQuestion();
         }
 
-        // Start the timer
-        function startTimer() {
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                timerEl.textContent = timeLeft;
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    endQuiz();
-                }
-            }, 1000);
-        }
 
         // End the quiz and show the results
         function endQuiz() {
