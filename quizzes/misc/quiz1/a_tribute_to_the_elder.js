@@ -84,9 +84,6 @@ function displayQuiz() {
         restartBtn.addEventListener('click', () => {
             // Reset variables
             currentQuestion = 0;
-            score = 0;
-            timeLeft = 30;
-            timerEl.textContent = timeLeft;
 
             // Reset the display
             questionEl.style.display = 'block';
