@@ -1,21 +1,22 @@
-const quizData = [
-            {
-                question: "which one",
-                options: ["1 and 2","3 and 4"],
-                weights: [
-                            {a_tribute_to_the_elder1: +1, a_tribute_to_the_elder2:+1}
-                            {a_tribute_to_the_elder3: +1, a_tribute_to_the_elder4:+1}
-                        ]
-            },
-            {
-                question: "which one",
-                options: ["3 and 2","1 and 4"],
-                weights: [
-                            {a_tribute_to_the_elder3: +1, a_tribute_to_the_elder2:+1}
-                            {a_tribute_to_the_elder1: +1, a_tribute_to_the_elder4:+1}
-                        ]
-            },
-        ]
+function displayQuiz() {
+            const quizData = [
+                        {
+                            question: "which one",
+                            options: ["1 and 2","3 and 4"],
+                            weights: [
+                                        {a_tribute_to_the_elder1: +1, a_tribute_to_the_elder2:+1}
+                                        {a_tribute_to_the_elder3: +1, a_tribute_to_the_elder4:+1}
+                                    ]
+                        },
+                        {
+                            question: "which one",
+                            options: ["3 and 2","1 and 4"],
+                            weights: [
+                                        {a_tribute_to_the_elder3: +1, a_tribute_to_the_elder2:+1}
+                                        {a_tribute_to_the_elder1: +1, a_tribute_to_the_elder4:+1}
+                                    ]
+                        },
+                    ]
             if (a_tribute_to_the_elder1 >= a_tribute_to_the_elder2 && a_tribute_to_the_elder1 >= a_tribute_to_the_elder3 && a_tribute_to_the_elder1 >= a_tribute_to_the_elder4) {
                         console.log ("a_tribute_to_the_elder1")
             } else if (a_tribute_to_the_elder2 >= a_tribute_to_the_elder1 && a_tribute_to_the_elder2 >= a_tribute_to_the_elder3 && a_tribute_to_the_elder2 >= a_tribute_to_the_elder4) {
